@@ -2,7 +2,11 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+  />
+
   <title>잇츠어스</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -10,6 +14,17 @@
   <style>
     body {
       font-family: Pretendard, sans-serif;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
@@ -18,19 +33,23 @@
 
   <!-- HEADER -->
   <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex items-center justify-between">
 
+      <!-- LOGO -->
       <div class="flex items-center gap-3">
-        <div class="w-12 h-12 bg-orange-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl">
+
+        <div class="w-10 h-10 sm:w-12 sm:h-12 bg-orange-500 rounded-2xl flex items-center justify-center text-white font-bold text-lg sm:text-xl">
           ☺
         </div>
 
-        <h1 class="text-3xl font-bold text-orange-500">
+        <h1 class="text-2xl sm:text-3xl font-bold text-orange-500">
           잇츠어스
         </h1>
+
       </div>
 
-      <nav class="hidden md:flex gap-10 font-medium text-[15px]">
+      <!-- DESKTOP NAV -->
+      <nav class="hidden lg:flex gap-10 font-medium text-[15px]">
         <a href="#">서비스 소개</a>
         <a href="#">이용 방식</a>
         <a href="#">가격</a>
@@ -38,7 +57,8 @@
         <a href="#">문의하기</a>
       </nav>
 
-      <button class="bg-orange-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-orange-600 transition">
+      <!-- BUTTON -->
+      <button class="bg-orange-500 text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-semibold hover:bg-orange-600 transition text-sm sm:text-base whitespace-nowrap">
         무료 상담
       </button>
 
@@ -46,53 +66,58 @@
   </header>
 
   <!-- HERO -->
-  <section class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20 grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
+    <!-- LEFT -->
     <div>
 
-      <p class="text-orange-500 font-semibold mb-5">
+      <p class="text-orange-500 font-semibold mb-4 sm:mb-5 text-sm sm:text-base">
         기업을 위한 맞춤형 스낵바 & 커피 솔루션
       </p>
 
-      <h2 class="text-6xl font-bold leading-tight mb-8">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 sm:mb-8">
         우리 회사에 딱 맞는
         <br />
+
         <span class="text-orange-500">
           스낵바 & 탕비실 서비스
         </span>
+
         <br />
         를 만나보세요
       </h2>
 
-      <p class="text-gray-600 text-lg leading-8 mb-10">
+      <p class="text-gray-600 text-base sm:text-lg leading-7 sm:leading-8 mb-8 sm:mb-10">
         다양한 스낵과 커피머신 렌탈까지,
         <br />
         업무 공간을 더 특별하게 만들어드립니다.
       </p>
 
-      <div class="flex flex-wrap gap-4 mb-10">
+      <!-- BUTTONS -->
+      <div class="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-10">
 
-        <button class="bg-orange-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-orange-600 transition">
+        <button class="w-full sm:w-auto bg-orange-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-orange-600 transition">
           무료 상담 신청
         </button>
 
-        <button class="border border-orange-500 text-orange-500 px-8 py-4 rounded-xl font-semibold hover:bg-orange-50 transition">
+        <button class="w-full sm:w-auto border border-orange-500 text-orange-500 px-8 py-4 rounded-xl font-semibold hover:bg-orange-50 transition">
           서비스 소개 보기
         </button>
 
       </div>
 
-      <div class="flex flex-wrap gap-4 text-sm">
+      <!-- FEATURES -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
 
-        <div class="bg-white border rounded-xl px-5 py-4">
+        <div class="bg-white border rounded-xl px-5 py-4 text-center">
           전국 어디든 자유로운 배송
         </div>
 
-        <div class="bg-white border rounded-xl px-5 py-4">
+        <div class="bg-white border rounded-xl px-5 py-4 text-center">
           맞춤 구성 & 큐레이션
         </div>
 
-        <div class="bg-white border rounded-xl px-5 py-4">
+        <div class="bg-white border rounded-xl px-5 py-4 text-center">
           무료 진열대 설치
         </div>
 
@@ -100,23 +125,28 @@
 
     </div>
 
+    <!-- RIGHT -->
     <div class="relative">
 
       <img
         src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1200&auto=format&fit=crop"
-        class="rounded-[40px] shadow-2xl w-full"
+        class="rounded-[24px] sm:rounded-[40px] shadow-2xl w-full object-cover"
+        alt="커피와 스낵"
       />
 
-      <div class="absolute bottom-6 right-6 bg-white rounded-2xl shadow-xl p-6">
-        <p class="text-orange-500 font-bold text-lg mb-2">
+      <!-- FLOATING BOX -->
+      <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 bg-white rounded-2xl shadow-xl p-4 sm:p-6 max-w-[220px]">
+
+        <p class="text-orange-500 font-bold text-base sm:text-lg mb-2">
           지금 상담하면
         </p>
 
-        <p class="font-bold text-2xl leading-tight">
+        <p class="font-bold text-lg sm:text-2xl leading-tight">
           맞춤 스낵 구성 제안
           <br />
           무료 제공!
         </p>
+
       </div>
 
     </div>
@@ -124,70 +154,118 @@
   </section>
 
   <!-- PROCESS -->
-  <section class="py-24 bg-white">
+  <section class="py-16 sm:py-24 bg-white">
 
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-      <div class="text-center mb-16">
-        <h3 class="text-5xl font-bold mb-4">
+      <div class="text-center mb-12 sm:mb-16">
+
+        <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
           간단한 이용 프로세스
         </h3>
 
-        <p class="text-gray-500 text-lg">
+        <p class="text-gray-500 text-base sm:text-lg">
           5단계로 간편하게 시작하세요
         </p>
+
       </div>
 
-      <div class="grid md:grid-cols-5 gap-6">
+      <!-- PROCESS GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
 
+        <!-- STEP -->
         <div class="bg-[#faf7f3] rounded-3xl p-8 text-center border border-gray-100">
-          <div class="text-orange-500 font-bold mb-3">STEP 1</div>
-          <h4 class="text-2xl font-bold mb-4">상담</h4>
+
+          <div class="text-orange-500 font-bold mb-3">
+            STEP 1
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4">
+            상담
+          </h4>
+
           <p class="text-gray-500 leading-7 text-sm">
             간단한 정보 입력으로
             <br />
             맞춤 상담
           </p>
+
         </div>
 
+        <!-- STEP -->
         <div class="bg-[#faf7f3] rounded-3xl p-8 text-center border border-gray-100">
-          <div class="text-orange-500 font-bold mb-3">STEP 2</div>
-          <h4 class="text-2xl font-bold mb-4">맞춤구성</h4>
+
+          <div class="text-orange-500 font-bold mb-3">
+            STEP 2
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4">
+            맞춤구성
+          </h4>
+
           <p class="text-gray-500 leading-7 text-sm">
             인원과 예산에 맞는
             <br />
             구성 제안
           </p>
+
         </div>
 
+        <!-- STEP -->
         <div class="bg-[#faf7f3] rounded-3xl p-8 text-center border border-gray-100">
-          <div class="text-orange-500 font-bold mb-3">STEP 3</div>
-          <h4 class="text-2xl font-bold mb-4">배송</h4>
+
+          <div class="text-orange-500 font-bold mb-3">
+            STEP 3
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4">
+            배송
+          </h4>
+
           <p class="text-gray-500 leading-7 text-sm">
             정기적인 간식 배송
             <br />
             시작
           </p>
+
         </div>
 
+        <!-- STEP -->
         <div class="bg-[#faf7f3] rounded-3xl p-8 text-center border border-gray-100">
-          <div class="text-orange-500 font-bold mb-3">STEP 4</div>
-          <h4 class="text-2xl font-bold mb-4">진열</h4>
+
+          <div class="text-orange-500 font-bold mb-3">
+            STEP 4
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4">
+            진열
+          </h4>
+
           <p class="text-gray-500 leading-7 text-sm">
             스낵바 세팅 및
             <br />
             정리 서비스
           </p>
+
         </div>
 
+        <!-- STEP -->
         <div class="bg-[#faf7f3] rounded-3xl p-8 text-center border border-gray-100">
-          <div class="text-orange-500 font-bold mb-3">STEP 5</div>
-          <h4 class="text-2xl font-bold mb-4">재고관리</h4>
+
+          <div class="text-orange-500 font-bold mb-3">
+            STEP 5
+          </div>
+
+          <h4 class="text-2xl font-bold mb-4">
+            재고관리
+          </h4>
+
           <p class="text-gray-500 leading-7 text-sm">
             자동 재고 체크 및
             <br />
             재주문
           </p>
+
         </div>
 
       </div>
@@ -197,22 +275,28 @@
   </section>
 
   <!-- CTA -->
-  <section class="max-w-7xl mx-auto px-6 pb-24">
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-24">
 
-    <div class="bg-[#fff3ea] rounded-[40px] px-10 py-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+    <div class="bg-[#fff3ea] rounded-[24px] sm:rounded-[40px] px-6 sm:px-10 py-10 sm:py-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
 
       <div>
-        <h3 class="text-4xl font-bold mb-4">
+
+        <h3 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">
+
           지금 무료 상담하고
           <br />
+
           <span class="text-orange-500">
             우리 회사만의 맞춤 스낵바 솔루션
           </span>
+
           을 경험해보세요!
+
         </h3>
+
       </div>
 
-      <button class="bg-orange-500 text-white px-10 py-5 rounded-2xl text-xl font-bold hover:bg-orange-600 transition">
+      <button class="w-full sm:w-auto bg-orange-500 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl text-lg sm:text-xl font-bold hover:bg-orange-600 transition">
         무료 상담 신청하기
       </button>
 
@@ -223,9 +307,10 @@
   <!-- FOOTER -->
   <footer class="bg-white border-t border-gray-100 py-16">
 
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
 
       <div>
+
         <h3 class="text-3xl font-bold text-orange-500 mb-4">
           잇츠어스
         </h3>
@@ -235,21 +320,29 @@
           <br />
           토탈 솔루션 제공
         </p>
+
       </div>
 
       <div>
-        <h4 class="font-bold mb-4 text-lg">상호명</h4>
+
+        <h4 class="font-bold mb-4 text-lg">
+          상호명
+        </h4>
 
         <ul class="space-y-3 text-gray-500">
           <li>잇츠어스</li>
-          <li>홍길동</li>
+          <li>김수아</li>
           <li>123-45-67890</li>
-          <li>서울특별시 강남구</li>
+          <li>인천시 남동구 남동서로236번길 30, 222-J07호</li>
         </ul>
+
       </div>
 
       <div>
-        <h4 class="font-bold mb-4 text-lg">서비스 소개</h4>
+
+        <h4 class="font-bold mb-4 text-lg">
+          서비스 소개
+        </h4>
 
         <ul class="space-y-3 text-gray-500">
           <li>이용 방식</li>
@@ -257,21 +350,26 @@
           <li>FAQ</li>
           <li>문의하기</li>
         </ul>
+
       </div>
 
       <div>
-        <h4 class="font-bold mb-4 text-lg">문의</h4>
+
+        <h4 class="font-bold mb-4 text-lg">
+          문의
+        </h4>
 
         <ul class="space-y-3 text-gray-500">
           <li>02-1234-5678</li>
           <li>contact@itsus.co.kr</li>
           <li>평일 09:00 - 18:00</li>
         </ul>
+
       </div>
 
     </div>
 
-    <div class="text-center text-gray-400 mt-12 text-sm">
+    <div class="text-center text-gray-400 mt-12 text-sm px-4">
       © 2024 잇츠어스. All rights reserved.
     </div>
 
