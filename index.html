@@ -3,369 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>잇츠어스 - 프리미엄 오피스 스낵바 & 탕비실 관리</title>
+    <title>잇츠어스 - 맞춤형 스낵바 & 탕비실 솔루션</title>
     
-    <meta property="og:title" content="잇츠어스 - 프리미엄 오피스 스낵바">
-    <meta property="og:description" content="우리 회사에 딱 맞는 탕비실 관리 솔루션을 만나보세요.">
-    <meta property="og:image" content="https://나의웹사이트주소.com/images/main-image.jpg">
+    <link href="https://spoqa.github.io/spoqa-hans-sans/css/SpoqaHanSansNeo.css" rel="stylesheet" type="text/com">
+
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
-        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-        
-        :root {
-            --primary-color: #f26522; /* 잇츠어스 오렌지 */
-            --text-main: #222222;
-            --text-light: #555555;
-            --bg-light: #fafafa;
-            --border-color: #eeeeee;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Pretendard', sans-serif;
-            -webkit-txt-size-adjust: none;
-        }
-
+        /* 글로벌 폰트 및 브랜드 컬러 지정 */
         body {
-            line-height: 1.7;
-            color: var(--text-main);
-            background-color: #ffffff;
-            word-break: keep-all;
+            font-family: 'Spoqa Han Sans Neo', 'Sans-serif';
         }
-
-        /* 상단 네비게이션 */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            background-color: rgba(255, 255, 255, 0.95);
-            z-index: 100;
-        }
-
-        .navbar .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        /* 메인 Hero 섹션 */
-        .hero {
-            padding: 3.5rem 1.5rem;
-            background-color: var(--bg-light);
-            text-align: center;
-        }
-
-        .hero-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .hero-text h1 {
-            font-size: 2.2rem;
-            font-weight: 800;
-            line-height: 1.3;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-
-        .hero-text p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        /* 반응형 버튼 배치 */
-        .hero-buttons {
-            display: flex;
-            gap: 0.8rem;
-            justify-content: center;
-            margin-bottom: 3rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.9rem 1.8rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.2s ease-in-out;
-            cursor: pointer;
-            border: none;
-            width: auto;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #e05413;
-        }
-
-        .btn-secondary {
-            background-color: white;
-            color: var(--text-main);
-            border: 1px solid #dddddd;
-        }
-
-        .btn-secondary:hover {
-            background-color: #f5f5f5;
-        }
-
-        /* 최상단 메인 이미지 */
-        .hero-image-container {
-            width: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            background-color: #eaeaea;
-        }
-
-        .hero-image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* 서비스 특징 섹션 */
-        .features {
-            padding: 5rem 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .feature-row {
-            display: flex;
-            align-items: center;
-            gap: 3.5rem;
-            margin-bottom: 5rem;
-        }
-
-        .feature-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .feature-row:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .feature-text {
-            flex: 1;
-        }
-
-        .feature-text h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--text-main);
-        }
-
-        .feature-text p {
-            font-size: 1.05rem;
-            color: var(--text-light);
-        }
-
-        /* 특징 이미지 */
-        .feature-image {
-            flex: 1;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-            width: 100%;
-        }
-
-        .feature-image img {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* 푸터 섹션 (사업자등록증 정보 추가 영역) */
-        .footer {
-            background-color: #1a1a1a;
-            color: #a0a0a0;
-            padding: 3.5rem 1.5rem;
-            font-size: 0.85rem;
-            border-top: 1px solid #333333;
-            line-height: 1.8;
-        }
-
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 1.2rem;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 1.2rem;
-        }
-
-        .footer-info p {
-            margin-bottom: 0.2rem;
-        }
-
-        .footer-info span {
-            display: inline-block;
-            margin-right: 0.8rem;
-        }
-
-        .footer-info span::after {
-            content: "|";
-            margin-left: 0.8rem;
-            color: #444444;
-        }
-
-        .footer-info span:last-child::after {
-            content: "";
-        }
-
-        .copyright {
-            margin-top: 1.5rem;
-            color: #666666;
-            font-size: 0.8rem;
-        }
-
-        /* 📱 모바일 반응형 디자인 */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-            }
-            .hero {
-                padding: 2.5rem 1rem;
-            }
-            .hero-text h1 {
-                font-size: 1.75rem;
-            }
-            .hero-buttons {
-                flex-direction: column;
-                gap: 0.6rem;
-            }
-            .btn {
-                width: 100%;
-                padding: 0.85rem;
-            }
-            .features {
-                padding: 3.5rem 1rem;
-            }
-            .feature-row, .feature-row:nth-child(even) {
-                flex-direction: column;
-                gap: 1.5rem;
-                margin-bottom: 4rem;
-            }
-            .feature-text h2 {
-                font-size: 1.4rem;
-            }
-            .feature-image img {
-                aspect-ratio: 16 / 10;
-            }
-            .footer {
-                padding: 2.5rem 1rem;
-            }
-            .footer-info span {
-                display: block; /* 모바일에서는 가독성을 위해 줄바꿈 처리 */
-                margin-bottom: 0.2rem;
-            }
-            .footer-info span::after {
-                content: "";
-            }
-        }
+        .text-brand { color: #F25C05; }
+        .bg-brand { background-color: #F25C05; }
+        .border-brand { border-color: #F25C05; }
+        .hover-bg-brand:hover { background-color: #D94E04; }
     </style>
+
+    <meta property="og:title" content="잇츠어스 - 우리 회사에 딱 맞는 스낵바 & 탕비실 서비스">
+    <meta property="og:description" content="다양한 스낵과 커피머신 렌탈까지, 업무 공간을 더 특별하게 만들어 드립니다.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="http://pf.kakao.com/_kxbFTX/chat">
 </head>
-<body>
+<body class="text-gray-800 bg-white antialiased">
 
-    <nav class="navbar">
-        <a href="#" class="logo">잇츠어스</a>
-    </nav>
-
-    <header class="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <h1>우리 회사 탕비실의 새로운 변화<br>잇츠어스 스낵바</h1>
-                <p>직원들의 복지 만족도를 높이는 완벽한 맞춤 관리 솔루션</p>
-                
-                <div class="hero-buttons">
-                    <a href="http://pf.kakao.com/_kxbFTX/chat" target="_blank" class="btn btn-primary">카카오톡 무료 상담 신청</a>
-                    
-                    <button onclick="alert('서비스 소개서 페이지는 현재 준비 중입니다. 곧 안내해 드리겠습니다!');" class="btn btn-secondary">서비스 소개 보기</button>
-                </div>
-            </div>
-
-            <div class="hero-image-container">
-                <img src="./main-image.jpg" alt="잇츠어스 오피스 스낵바 탕비실 전체 세팅 전경">
-            </div>
+    <header class="flex justify-between items-center py-4 px-4 md:px-10 border-b border-gray-100 sticky top-0 bg-white z-50">
+        <div class="flex items-center">
+            <a href="#">
+                <img src="./images/logo_1.png" alt="잇츠어스 로고 1번" class="h-8 md:h-10 font-bold text-xl text-brand" onerror="this.style.display='none'; this.after('잇츠어스')">
+            </a>
         </div>
+        <nav class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#" class="hover:text-brand transition">서비스 소개</a>
+            <a href="#" class="hover:text-brand transition">이용 방식</a>
+            <a href="#" class="hover:text-brand transition">가격</a>
+            <a href="#" class="hover:text-brand transition">FAQ</a>
+            <a href="#" class="hover:text-brand transition">문의하기</a>
+        </nav>
+        <a href="http://pf.kakao.com/_kxbFTX/chat" target="_blank" class="bg-brand text-white px-4 py-2 text-xs md:text-sm font-bold rounded-md hover-bg-brand transition shadow-sm">
+            무료 상담 신청
+        </a>
     </header>
 
-    <main class="features">
+    <section class="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-20 flex flex-col md:flex-row items-center gap-10">
+        <div class="w-full md:w-1/2 space-y-5 md:space-y-6 text-center md:text-left">
+            <p class="text-brand font-bold text-xs md:text-sm tracking-wide bg-orange-50 px-3 py-1 rounded-full inline-block">
+                기업을 위한 맞춤형 스낵바 & 탕비실 솔루션
+            </p>
+            <h1 class="text-2xl md:text-4xl font-extrabold leading-tight tracking-tight">
+                우리 회사에 딱 맞는 <br class="hidden md:block">
+                <span class="text-brand">스낵바 & 탕비실 서비스</span>를<br>
+                만나보세요
+            </h1>
+            <p class="text-gray-500 font-medium text-sm md:text-base leading-relaxed">
+                다양한 스낵과 커피머신 렌탈까지,<br class="md:hidden"> 업무 공간을 더 특별하게 만들어 드립니다.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-3 pt-2">
+                <a href="http://pf.kakao.com/_kxbFTX/chat" target="_blank" class="bg-brand text-white px-6 py-3 rounded-md font-bold flex items-center justify-center shadow-md hover-bg-brand transition text-sm md:text-base">
+                    💬 무료 상담 신청
+                </a>
+                <a href="#" class="border border-gray-300 px-6 py-3 rounded-md font-bold text-gray-700 hover:bg-gray-50 transition text-sm md:text-base flex items-center justify-center">
+                    서비스 소개 보기
+                </a>
+            </div>
+            
+            <div class="flex flex-wrap justify-center md:justify-start gap-4 md:gap-6 text-xs md:text-sm text-gray-600 pt-6 border-t border-gray-100">
+                <span class="flex items-center gap-1">🚚 전국 어디든 자유로운 배송</span>
+                <span class="flex items-center gap-1">🍱 맞춤 구성 & 큐레이션</span>
+                <span class="flex items-center gap-1">📦 무료 진열대 설치</span>
+            </div>
+        </div>
         
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>1. 커피머신 렌탈 및 탕비실 관리</h2>
-                <p>프리미엄 원두와 고성능 커피머신 렌탈은 물론, 탕비실의 전반적인 청결과 비품 재고 관리까지 완벽하게 전담해 드립니다.</p>
-            </div>
-            <div class="feature-image">
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="커피머신과 원두 사진">
+        <div class="w-full md:w-1/2">
+            <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80" 
+                 alt="메인 탕비실 전경 (2번째 사진)" 
+                 class="w-full h-64 sm:h-80 md:h-[450px] object-cover rounded-2xl shadow-lg"> 
+        </div>
+    </section>
+
+    <section class="bg-gray-50 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 text-center">
+            <h2 class="text-xl md:text-2xl font-bold mb-2">간단한 이용 프로세스</h2>
+            <p class="text-gray-400 text-xs md:text-sm mb-8 md:mb-12">5단계로 간편하게 시작하세요</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-gray-100/60">
+                    <div class="text-brand text-2xl md:text-3xl mb-2">💬</div>
+                    <div class="text-[10px] text-brand font-bold mb-1">STEP 1</div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">상담</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">간단한 정보 입력으로<br class="hidden md:block"> 맞춤 상담</p>
+                </div>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-gray-100/60">
+                    <div class="text-brand text-2xl md:text-3xl mb-2">📋</div>
+                    <div class="text-[10px] text-brand font-bold mb-1">STEP 2</div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">맞춤구성</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">인원과 예산에 맞는<br class="hidden md:block"> 구성 제안</p>
+                </div>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-gray-100/60">
+                    <div class="text-brand text-2xl md:text-3xl mb-2">🚚</div>
+                    <div class="text-[10px] text-brand font-bold mb-1">STEP 3</div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">배송</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">정기적인 간식 배송<br class="hidden md:block"> 시작</p>
+                </div>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-gray-100/60">
+                    <div class="text-brand text-2xl md:text-3xl mb-2">✨</div>
+                    <div class="text-[10px] text-brand font-bold mb-1">STEP 4</div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">진열</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">스낵바 세팅 및<br class="hidden md:block"> 정리 서비스</p>
+                </div>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-sm border border-gray-100/60">
+                    <div class="text-brand text-2xl md:text-3xl mb-2">📊</div>
+                    <div class="text-[10px] text-brand font-bold mb-1">STEP 5</div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">재고관리</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">자동 재고 체크 및<br class="hidden md:block"> 재주문</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>2. 원하는 주기와 진열 횟수 협의 가능</h2>
-                <p>기업별 업무 환경과 소비 패턴에 맞춰 간식 정기 배송 주기 및 진열 관리 횟수를 자유롭게 맞춤 설정할 수 있습니다.</p>
+    <section class="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
+        <div class="text-center mb-8 md:mb-12">
+            <h2 class="text-xl md:text-2xl font-bold">단순 배송이 아닌, 토탈 솔루션을 제공합니다</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                <img src="https://images.unsplash.com/photo-1581579438747-1dc8d1e0ca96?auto=format&fit=crop&w=500&q=80" alt="원하는 주기 배송" class="w-full h-44 object-cover">
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-sm md:text-base mb-2">원하는 주기와 진열 횟수 협의 가능</h3>
+                        <p class="text-xs md:text-sm text-gray-500 leading-relaxed">회사 상황에 맞춰 배송 주기와 진열 횟수를 자유롭게 조정하세요.</p>
+                    </div>
+                </div>
             </div>
-            <div class="feature-image">
-                <img src="./display-rack.jpg" alt="잇츠어스 전용 매대 및 간식 진열 사진" onerror="this.src='https://images.unsplash.com/photo-1601599561096-f87c95fff1e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+            
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80" alt="커피머신 렌탈" class="w-full h-44 object-cover">
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-sm md:text-base mb-2">커피머신 렌탈 및 탕비실 관리</h3>
+                        <p class="text-xs md:text-sm text-gray-500 leading-relaxed">커피머신 렌탈부터 원두, 컵, 시럽 등 탕비실까지 한 번에 관리해드립니다.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                <img src="https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=500&q=80" alt="음료 냉장고" class="w-full h-44 object-cover">
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-sm md:text-base mb-2">음료 냉장고 렌탈 및 관리</h3>
+                        <p class="text-xs md:text-sm text-gray-500 leading-relaxed">다양한 음료를 깔끔하게 비치하고 지속적인 관리로 항상 쾌적하게 유지합니다.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="회사 규모 맞춤 솔루션" class="w-full h-44 object-cover">
+                <div class="p-5 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-sm md:text-base mb-2">회사 규모에 맞는 맞춤 솔루션</h3>
+                        <p class="text-xs md:text-sm text-gray-500 leading-relaxed">회사 공간과 인원 규모에 최적화된 맞춤형 솔루션을 제공합니다.</p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="feature-row">
-            <div class="feature-text">
-                <h2>3. 회사 규모에 맞는 맞춤 솔루션</h2>
-                <p>소규모 스타트업부터 대기업 사옥까지 다양한 종류의 음료 쇼케이스와 매대 라인업을 통해 최적의 공간 맞춤형 세팅을 제공합니다.</p>
+    <section class="bg-white py-12 md:py-16 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-xl md:text-2xl font-bold mb-2">왜 잇츠어스여야 할까요?</h2>
+                <p class="text-gray-400 text-xs md:text-sm">고객 만족을 최우선으로 생각합니다</p>
             </div>
-            <div class="feature-image">
-                <img src="https://images.unsplash.com/photo-1622485534208-8e659b8a02c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="다양한 음료 쇼케이스 및 진열 매대">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center md:text-left">
+                <div class="p-4 space-y-2">
+                    <div class="text-brand text-xl font-bold">💡 전문 상담사 운영</div>
+                    <p class="text-xs md:text-sm text-gray-500 leading-relaxed">전문 상담사가 1:1로 밀착 마크하여 기업 맞춤 솔루션을 제안합니다.</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-brand text-xl font-bold">⚡ 피드백 즉시 반영</div>
+                    <p class="text-xs md:text-sm text-gray-500 leading-relaxed">고객님의 사소한 피드백과 과자 선호도 종류 변경을 빠르게 수용하고 개선합니다.</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-brand text-xl font-bold">📞 담당자 연락 원활</div>
+                    <p class="text-xs md:text-sm text-gray-500 leading-relaxed">전담 매니저가 유선 및 메신저로 핫라인 매칭되어 언제든 신속하게 응대합니다.</p>
+                </div>
+                <div class="p-4 space-y-2">
+                    <div class="text-brand text-xl font-bold">📈 월말 리포트 & 분석</div>
+                    <p class="text-xs md:text-sm text-gray-500 leading-relaxed">임직원 선호도 상품 순위와 예산 비용 추이를 깔끔한 리포트로 한눈에 확인 가능합니다.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-    </main>
-
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">잇츠어스 (EAT'S US)</div>
-            <div class="footer-info">
-                <p>
-                    <span>상호명: 잇츠어스</span>
-                    <span>대표자명: 홍길동</span>
-                    <span>사업자등록번호: 000-00-00000</span>
-                </p>
-                <p>
-                    <span>통신판매업신고번호: 제 2026-서울강남-0000호</span>
-                    <span>주소: 서울특별시 강남구 테헤란로 123</span>
-                </p>
-                <p>
-                    <span>고객센터: 02-1234-5678</span>
-                    <span>이메일: cs@itsus.com</span>
-                    <span>비즈니스 문의: 카카오톡 채널 @잇츠어스</span>
-                </p>
-                <p class="copyright">© 2026 EAT'S US. All rights reserved.</p>
+    <section class="bg-gray-50 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 md:px-8">
+            <h2 class="text-xl md:text-2xl font-bold text-center mb-8 md:mb-12">함께한 고객들의 만족 후기</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <p class="text-xs md:text-sm text-gray-600 italic leading-relaxed">"스낵 종류도 다양하고 진열도 매주 깔끔하게 정리해주셔서 직원들의 복지 만족도가 정말 몰라보게 높아졌어요!"</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-100">
+                        <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-xs">💻</div>
+                        <div>
+                            <h4 class="font-bold text-xs md:text-sm">IT 기업 인사팀 대리</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <p class="text-xs md:text-sm text-gray-600 italic leading-relaxed">"커피머신 렌탈과 원두 충전까지 스낵바와 한 번에 통합 관리되니 총무팀 손이 갈 일이 없어 운영이 훨씬 편해졌습니다."</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-100">
+                        <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-xs">🏭</div>
+                        <div>
+                            <h4 class="font-bold text-xs md:text-sm">제조업 총무팀 차장</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <p class="text-xs md:text-sm text-gray-600 italic leading-relaxed">"매달 바뀌는 피드백 수용 속도가 엄청 빨라요. 전담 담당자 피드백 응대가 무척 친절해서 계속 연장 계약하며 이용 중입니다."</p>
+                    <div class="flex items-center gap-3 mt-4 pt-4 border-t border-gray-100">
+                        <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-xs">🚀</div>
+                        <div>
+                            <h4 class="font-bold text-xs md:text-sm">마케팅 회사 팀장</h4>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-50 pb-12 px-4">
+        <a href="http://pf.kakao.com/_kxbFTX/chat" target="_blank" class="block max-w-5xl mx-auto bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8 hover:scale-[1.01] transition-transform duration-300">
+            <div class="flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4">
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                    <div class="text-4xl md:text-5xl">🎁</div>
+                    <div>
+                        <h3 class="text-base md:text-xl font-bold mb-1">지금 무료 상담 신청하고</h3>
+                        <p class="text-brand font-bold text-sm md:text-base">우리 회사만의 맞춤 스낵바 & 탕비실 솔루션을 경험해보세요!</p>
+                    </div>
+                </div>
+                <div class="bg-brand text-white px-6 py-3 rounded-md font-bold shadow-sm hover-bg-brand transition text-xs md:text-sm whitespace-nowrap">
+                    💬 무료 상담 신청하기
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-10 px-4 md:px-10 text-xs md:text-sm">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8 border-b border-gray-800 pb-8">
+            <div class="space-y-3">
+                <div class="text-white font-bold text-lg">잇츠어스</div>
+                <p>회사 정보 | 대표자: 김수아 | 사업자등록번호: 454-46-01451</p>
+                <p>주소: 인천시 남동구 남동서로236번길 30, 논현2차푸르지오시티 222-J07호</p>
+            </div>
+            <div class="space-y-2">
+                <div class="text-white font-bold">고객센터</div>
+                <p class="text-lg font-bold text-brand">123-45-67890</p>
+                <p>평일 09:00 - 18:00 (주말/공휴일 휴무)</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-6 text-center md:text-left text-gray-500 text-[11px]">
+            &copy; 2026 잇츠어스. All rights reserved.
         </div>
     </footer>
 
