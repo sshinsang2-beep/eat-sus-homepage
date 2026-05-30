@@ -16,17 +16,25 @@
         .border-brand { border-color: #F25C05; }
         .hover-bg-brand:hover { background-color: #D94E04; }
         
-        /* 스크롤 여백 (헤더에 가려지는 것 방지) */
+        /* 스크롤 여백 */
         section { scroll-margin-top: 80px; }
 
-        /* 아코디언(FAQ) 기본 화살표 숨기기 및 애니메이션 */
+        /* FAQ 아코디언 애니메이션 및 아이콘 전환 */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
-        details[open] summary ~ * { animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(-10px); }
+        
+        /* 열렸을 때 답변 애니메이션 */
+        details[open] .faq-answer { 
+            animation: slideDown 0.3s ease-out forwards; 
+        }
+        @keyframes slideDown {
+            0% { opacity: 0; transform: translateY(-5px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+
+        /* 닫혔을 때(+), 열렸을 때(-) 기호 변경 */
+        .faq-icon::before { content: '+'; font-size: 1.5rem; font-weight: 300; }
+        details[open] .faq-icon::before { content: '−'; }
     </style>
 </head>
 <body class="text-gray-800 bg-white antialiased">
@@ -35,11 +43,16 @@
     <header class="flex justify-between items-center py-4 px-4 md:px-10 border-b border-gray-100 sticky top-0 bg-white z-50 shadow-sm">
         <div class="flex items-center">
             <a href="#">
-                <!-- 요청하신 두 번째 로고 파일명 적용 -->
-                <img src="KakaoTalk_20260429_234128159_2.png" alt="잇츠어스 로고" class="h-8 md:h-10 font-bold text-xl text-brand" onerror="this.style.display='none'; this.after('잇츠어스')">
+                <!-- 
+                =========================================================
+                [중요] 로고 파일 이미지 태그입니다!
+                HTML 파일과 같은 폴더에 'KakaoTalk_20260429_234128159_2.png' 
+                파일이 정확히 있어야만 화면에 나타납니다.
+                ========================================================= 
+                -->
+                <img src="KakaoTalk_20260429_234128159_2.png" alt="잇츠어스 로고" class="h-10 md:h-12 object-contain">
             </a>
         </div>
-        <!-- 내비게이션 링크 -->
         <nav class="hidden md:flex space-x-8 text-sm font-medium">
             <a href="#service" class="hover:text-brand transition">서비스 소개</a>
             <a href="#process" class="hover:text-brand transition">이용 방식</a>
@@ -173,7 +186,6 @@
                 <p class="text-gray-500 text-xs md:text-sm">기업의 인원 및 공간 상황에 따라 맞춤 커스터마이징이 가능합니다.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Basic -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand transition">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">기본 <span class="text-sm font-normal text-gray-500">(Basic)</span></h3>
                     <div class="text-2xl font-extrabold text-brand mb-6">월 30만원<span class="text-base font-normal text-gray-500"> 부터</span></div>
@@ -182,7 +194,6 @@
                         <li class="flex items-center gap-2">✓ 온라인 피드백 반영</li>
                     </ul>
                 </div>
-                <!-- Standard -->
                 <div class="bg-white p-6 rounded-2xl shadow-md border-2 border-brand relative transform md:scale-105 z-10">
                     <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-brand text-white text-xs font-bold px-3 py-1 rounded-full">BEST 추천</div>
                     <h3 class="text-lg font-bold text-gray-800 mb-4">중간 <span class="text-sm font-normal text-gray-500">(Standard)</span></h3>
@@ -194,7 +205,6 @@
                         <li class="flex items-center gap-2">✓ 박스 및 폐기물 수거</li>
                     </ul>
                 </div>
-                <!-- Premium -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:border-brand transition">
                     <h3 class="text-lg font-bold text-gray-800 mb-4">고급 <span class="text-sm font-normal text-gray-500">(Premium)</span></h3>
                     <div class="text-2xl font-extrabold text-brand mb-6">별도 문의</div>
@@ -209,54 +219,68 @@
         </div>
     </section>
 
-    <!-- [FAQ] 개편된 2단 아코디언 섹션 (레퍼런스 반영) -->
+    <!-- [FAQ] 개편된 문의사항 섹션 (제공 이미지 스타일 적용) -->
     <section id="faq" class="bg-white py-16 md:py-24 border-t border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row gap-12">
-            <!-- 좌측 타이틀 영역 -->
-            <div class="w-full md:w-1/3">
-                <p class="text-gray-500 font-medium text-sm mb-2">자주 묻는 질문</p>
-                <h2 class="text-2xl md:text-3xl font-extrabold leading-tight text-gray-900 mb-6">
-                    잇츠어스에 대해<br>더 궁금하다면?
-                </h2>
-                <a href="#" class="text-brand font-bold flex items-center hover:underline">
-                    소개서 받기 
-                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </a>
-            </div>
+        <div class="max-w-4xl mx-auto px-4 md:px-8">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-12">
+                자주 묻는 질문
+            </h2>
             
-            <!-- 우측 아코디언 리스트 -->
-            <div class="w-full md:w-2/3 border-t border-gray-200">
+            <div class="border-t-[3px] border-gray-800">
                 
-                <!-- FAQ 아이템 1 -->
+                <!-- FAQ 1 -->
                 <details class="group border-b border-gray-200">
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none py-5 text-gray-800 hover:text-brand transition">
-                        <span>
-                            <span class="text-gray-400 font-normal mr-4 md:mr-8 text-sm">상품 관련</span>
-                            간식의 종류가 어떻게 되나요?
-                        </span>
-                        <span class="transition group-open:rotate-180">
-                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </span>
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-6 text-gray-800 hover:text-brand transition">
+                        <span>Q. 간식 주문 방법이 궁금합니다</span>
+                        <span class="faq-icon text-gray-400"></span>
                     </summary>
-                    <div class="text-gray-500 text-sm md:text-base leading-relaxed pb-6 pl-[88px] pr-4 bg-gray-50/50 pt-2 rounded-b-lg">
-                        잇츠어스는 스낵, 라면, 음료, 신선식품 등 수천 가지의 다채로운 간식 라인업을 보유하고 있으며, 임직원분들이 질리지 않도록 매월 새로운 인기 신상품이 주기적으로 업데이트됩니다.
+                    <div class="faq-answer text-gray-600 text-sm md:text-base leading-relaxed pb-6">
+                        담당자 전용 채널(카카오톡 및 발주 시스템)을 통해 매월 정해진 예산 내에서 자유롭게 원하시는 간식을 선택하여 주문하실 수 있습니다.
                     </div>
                 </details>
 
-                <!-- FAQ 아이템 2 -->
-                <details class="group border-b border-gray-200" open>
-                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none py-5 text-gray-800 hover:text-brand transition">
-                        <span>
-                            <span class="text-gray-400 font-normal mr-4 md:mr-8 text-sm">상품 관련</span>
-                            간식 구성은 어떻게 되나요?
-                        </span>
-                        <span class="transition group-open:rotate-180">
-                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        </span>
+                <!-- FAQ 2 -->
+                <details class="group border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-6 text-gray-800 hover:text-brand transition">
+                        <span>Q. 스낵을 놓을 매대나 냉장고가 없는데 어떻게 하죠?</span>
+                        <span class="faq-icon text-gray-400"></span>
                     </summary>
-                    <div class="text-gray-500 text-sm md:text-base leading-relaxed pb-6 pl-[88px] pr-4 bg-gray-50/50 pt-2 rounded-b-lg space-y-4">
-                        <p>서비스를 이용하시게 되면 담당자 전용 채널을 통해 원하시는 상품을 확인하시고, 원하는 구성으로 직접 선택하실 수 있습니다.</p>
-                        <p>만약 직접 고르는 일이 번거롭다고 생각하시면 자동 큐레이션도 할 수 있어요.<br>간식 구성 설정에서 원하는 비율을 넣으면 (예 : 스낵류 50%, 음료류 50%), 다른 기업에서도 사랑하는 인기 간식으로 자동 큐레이션 됩니다.</p>
+                    <div class="faq-answer text-gray-600 text-sm md:text-base leading-relaxed pb-6">
+                        걱정하지 마세요! 기업 환경과 이용하시는 요금제에 맞춰 최적화된 맞춤형 스낵 진열대와 음료 냉장고를 무상으로 설치해 드립니다.
+                    </div>
+                </details>
+
+                <!-- FAQ 3 -->
+                <details class="group border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-6 text-gray-800 hover:text-brand transition">
+                        <span>Q. 진열 서비스는 언제 이루어지나요?</span>
+                        <span class="faq-icon text-gray-400"></span>
+                    </summary>
+                    <div class="faq-answer text-gray-600 text-sm md:text-base leading-relaxed pb-6">
+                        협의된 정기 배송일(주 1회~2회 등)에 맞춰 잇츠어스의 전문 매니저가 직접 방문하여 깔끔하게 진열 및 폐기물 수거까지 완료해 드립니다.
+                    </div>
+                </details>
+
+                <!-- FAQ 4 -->
+                <details class="group border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-6 text-gray-800 hover:text-brand transition">
+                        <span>Q. 스낵 큐레이션 방법이 궁금합니다</span>
+                        <span class="faq-icon text-gray-400"></span>
+                    </summary>
+                    <div class="faq-answer text-gray-600 text-sm md:text-base leading-relaxed pb-6">
+                        사전 선호도 조사와 매월 소비되는 간식 데이터를 분석하여, 우리 회사 임직원들이 가장 좋아하는 맞춤형 스낵 라인업으로 큐레이션 해드립니다.
+                    </div>
+                </details>
+
+                <!-- FAQ 5 (결제 관련) -->
+                <details class="group border-b border-gray-200" open>
+                    <summary class="flex justify-between items-center font-bold cursor-pointer list-none py-6 text-gray-800 hover:text-brand transition">
+                        <span>Q. 결제는 어떻게 하나요?</span>
+                        <span class="faq-icon text-gray-400"></span>
+                    </summary>
+                    <div class="faq-answer text-gray-600 text-sm md:text-base leading-relaxed pb-6">
+                        매달 말일에 간식 구매 내역 및 반품 내역을 토대로 1장의 세금계산서로 정산이 이루어집니다.<br>
+                        여러 번 결제할 필요 없이 한 번에 결제하시면 됩니다.
                     </div>
                 </details>
 
