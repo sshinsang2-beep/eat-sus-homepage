@@ -59,26 +59,40 @@
     </div>
 </div>
 
-<header class="flex justify-between items-center py-4 px-4 md:px-10 border-b border-gray-100 sticky top-0 bg-white z-50 shadow-sm">
+<header class="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-100">
 
-    <!-- 로고 -->
-    <a href="/" class="flex items-center">
-        <img
-            src="./images/잇츠어스_로고.png"
-            alt="잇츠어스"
-            class="h-10 object-contain"
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+        <!-- 로고 -->
+        <a href="/" class="flex items-center">
+            <img
+                src="./images/잇츠어스_로고.png"
+                alt="잇츠어스"
+                class="h-12 w-auto"
+            >
+        </a>
+
+        <!-- 메뉴 -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
+            <a href="#service">서비스 소개</a>
+            <a href="#process">이용 방식</a>
+            <a href="#pricing">가격</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">문의하기</a>
+        </nav>
+
+        <!-- 버튼 -->
+        <a
+            href="#contact"
+            class="bg-brand text-white px-5 py-3 rounded-md font-bold"
         >
-    </a>
+            무료 상담 신청
+        </a>
 
-    <nav class="hidden md:flex space-x-8 text-sm font-medium">
-        ...
-    </nav>
-
-    <a href="#contact" class="bg-brand ...">
-        무료 상담 신청
-    </a>
+    </div>
 
 </header>
+    
     <!-- 메인 히어로 섹션 -->
     <section class="max-w-7xl mx-auto px-4 md:px-8 py-10 md:py-20 flex flex-col md:flex-row items-center gap-10">
         <div class="w-full md:w-1/2 space-y-5 md:space-y-6 text-center md:text-left">
